@@ -1,24 +1,20 @@
 version: '3'
 services:
   db: 
-    restart: always
     image: mysql
-    container_name: sojdb
     volumes:
       - ./db:/var/lib/mysql
     environment:
-      - "MYSQL_ROOT_PASSWORD=123456"
-      - "MYSQL_DATABASE=soj"
-      - "TZ=Asia/Shanghai"
-    ports:
-                - 3306:3306
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=soj
+      - TZ=Asia/Shanghai
+    expose:
+      - "3306"
 
   soj-backend: 
     build: ./soj/
     container_name: soj-backend
-    command: /bin/bash /soj/start.sh
     ports:
-                 - "8080:8080"
+      - "8080:8080"
     links: 
       - db
-

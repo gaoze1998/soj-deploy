@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'soj',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': 'sojdb',
+        'HOST': 'db',
         'PORT': 3306,
     }
 }
