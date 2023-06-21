@@ -3,18 +3,19 @@ simple online judge deploy
 
 ## quick start
 
-cmd: 
+### cmd: 
+1. Linux:
 
 ./start.sh
 
+2. Windows:
+
+powershell: docker-compose up -d --build
+
 wait until everything up and running(about 20-30s)
 
-sudo docker exec -it soj-backend /bin/bash
+python3 manage.py createsuperuser --user admin
 
-python3 manage.py makemigrations
+input email and password
 
-python3 manage.py migrate
-
-python3 manage.py createsuperuser
-
-python3 manage.py runserver 0.0.0.0:8080
+open http://localhost:8080/admin.

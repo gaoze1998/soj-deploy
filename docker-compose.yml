@@ -2,6 +2,7 @@ version: '3'
 services:
   db: 
     image: mysql
+    container_name: db
     volumes:
       - ./db:/var/lib/mysql
     environment:
@@ -13,7 +14,10 @@ services:
 
   soj-backend: 
     build: ./soj/
+    command: bash ./start.sh
     container_name: soj-backend
+    volumes:
+      - ./soj:/soj
     ports:
       - "8080:8080"
     links: 
